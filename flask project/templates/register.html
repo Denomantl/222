@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Калькулятор</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.kat1.label }}<br>
+        {{ form.kat1(class="form-control") }}<br>
+        {% for error in form.kat1.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.kat2.label }}<br>
+        {{ form.kat2(class="form-control") }}<br>
+        {% for error in form.kat2.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    <h1>{{message}}</h1>
+</form>
+{% endblock %}
